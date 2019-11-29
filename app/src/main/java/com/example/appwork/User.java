@@ -8,6 +8,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    private String apiKey;
 
     public User(Long id, String firstName, String lastName, String email, String password) {
         this.id = id;
@@ -18,6 +19,14 @@ public class User {
     }
 
     public User() {
+    }
+
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
     }
 
     public Long getId() {
