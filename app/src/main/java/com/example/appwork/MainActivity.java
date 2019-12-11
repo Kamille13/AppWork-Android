@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.support.v4.util.Consumer;
-
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
          Button btInscription = findViewById(R.id.button2);
 
         btConnect.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 EditText etEmail = findViewById(R.id.editText);
@@ -39,13 +40,16 @@ public class MainActivity extends AppCompatActivity {
                     user.setEmail(email);
                     user.setPassword(password);
                     VolleySingleton.getInstance(MainActivity.this).signIn(user, new Consumer<User>() {
+
                         @Override
-                        public void accept(User user) {
-                            if(user != null){
+                        public void accept(User userFromDB) {
+                            if(userFromDB != null){
                                 UserSingleton userSingleton = UserSingleton.getInstance();
-                                userSingleton.setUser(user);
-                                Intent intent = new Intent(MainActivity.this,PrincipalActivity.class);
+                                userSingleton.setUser(userFromDB);
+                                Intent intent = new Intent(MainActivity.this, ModificationActivity.class);
                                 startActivity(intent);
+                                String apiKey = userFromDB.getApiKey();
+                                Toast.makeText(MainActivity.this, apiKey, Toast.LENGTH_LONG).show();
                             }
                         }
                     });

@@ -6,4 +6,5 @@
     <string name="e_mail">E-mail</string>
     <string name="mot_de_passe">Mot de Passe</string>
     <string name="last_name">Last Name</string>
+    <string name="appliquer">Appliquer</string>
 </resources>

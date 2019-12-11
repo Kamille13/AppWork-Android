@@ -47,7 +47,7 @@ public class InscriptionActivity extends AppCompatActivity {
                         @Override
                         public void accept(User user) {
                             UserSingleton.getInstance().setUser(user);
-                            Intent intent = new Intent(InscriptionActivity.this, PrincipalActivity.class);
+                            Intent intent = new Intent(InscriptionActivity.this, ModificationActivity.class);
                             startActivity(intent);
                         }
                     });
